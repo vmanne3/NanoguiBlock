@@ -1,18 +1,17 @@
-if(NOT TARGET ciNanogui)
+if(NOT TARGET NanoguiBlock)
     # Define ${Cinder-Notifications_PROJECT_ROOT}. ${CMAKE_CURRENT_LIST_DIR} is just the current directory.
-    get_filename_component(ciNanogui_PROJECT_ROOT "${CMAKE_CURRENT_LIST_DIR}/../.." ABSOLUTE)
+    get_filename_component(NanoguiBlock_PROJECT_ROOT "${CMAKE_CURRENT_LIST_DIR}/../.." ABSOLUTE)
 
     # Define ${CINDER_PATH} as usual.
-    get_filename_component(CINDER_PATH "${ciNanogui_PROJECT_ROOT}/../.." ABSOLUTE)
+    get_filename_component(CINDER_PATH "${NanoguiBlock_PROJECT_ROOT}/../.." ABSOLUTE)
 
     # Make a list of source files and define that to be ${SOURCE_LIST}.
     file(GLOB SOURCE_LIST CONFIGURE_DEPENDS
-            "${ciNanogui_PROJECT_ROOT}/ciNanoGui.cpp"
+            "${NanoguiBlock_PROJECT_ROOT}/ciNanoGui.cpp"
             )
 
     # Create the library!
-    #
-    add_library(ciNanogui ${SOURCE_LIST})
+    add_library(NanoguiBlock ${SOURCE_LIST})
 
     # Add include directories.
     # Notice that `cinderblock.xml` has `<includePath>src</includePath>`.
@@ -32,6 +31,6 @@ if(NOT TARGET ciNanogui)
                 "${CINDER_PATH}/${CINDER_LIB_DIRECTORY}"
                 "$ENV{CINDER_PATH}/${CINDER_LIB_DIRECTORY}")
     endif()
-    target_link_libraries(ciNanogui PRIVATE cinder)
+    target_link_libraries(NanoguiBlock PRIVATE cinder)
 
 endif()
